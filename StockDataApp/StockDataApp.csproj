@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BackEnd\Controller\EventsBackend.cs" />
     <Compile Include="BackEnd\Controller\LoginPageBackend.cs" />
+    <Compile Include="BackEnd\Controller\MessagesBackend.cs" />
     <Compile Include="BackEnd\Services\Connection.cs" />
     <Compile Include="FrontEnd\DashboardMain.cs">
       <SubType>Form</SubType>
@@ -76,6 +77,12 @@
     <Compile Include="FrontEnd\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrontEnd\ProfilePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\ProfilePage.Designer.cs">
+      <DependentUpon>ProfilePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrontEnd\DashboardMain.resx">
@@ -83,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrontEnd\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontEnd\ProfilePage.resx">
+      <DependentUpon>ProfilePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
