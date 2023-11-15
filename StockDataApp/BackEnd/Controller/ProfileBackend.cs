@@ -53,5 +53,17 @@ namespace StockDataApp.BackEnd.Controller
             int numOfEvents = Int16.Parse(num);
             return numOfEvents;
         }
+
+        public int getUserId(string username)
+        {
+            Connection obj = new Connection();
+            String query = "SELECT COUNT(title) AS Count \r\n" +
+                "FROM Events\r\n" +
+                "WHERE users LIKE '%, " + id + ",%'";
+            DataSet userID = obj.getDataSet(query);
+            string num = userID.Tables[0].Rows[0]["Count"].ToString();
+            int numOfEvents = Int16.Parse(num);
+            return numOfEvents;
+        }
     }
 }
