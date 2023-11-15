@@ -31,9 +31,7 @@ namespace StockDataApp.FrontEnd
 
         private void profile_Click(object sender, EventArgs e)
         {
-            ProfilePage obj = new ProfilePage();
-            this.Hide();
-            obj.Show();
+            
         }
 
         private void dashboard_Click(object sender, EventArgs e)
@@ -59,8 +57,63 @@ namespace StockDataApp.FrontEnd
         }
         public void uname(String uname)
         {
-            EventsBackend obj = new EventsBackend();
+            Random random = new Random();
+            
+            ProfileBackend obj = new ProfileBackend();
             int userID = obj.getUserId(uname);
+
+            //userDetails being updated
+            DataSet userData = obj.returnUserData(userID);//gets userinfo dataset
+            string email = userData.Tables[0].Rows[0]["email"].ToString();
+            string title = userData.Tables[0].Rows[0]["title"].ToString();
+            string fname = userData.Tables[0].Rows[0]["fname"].ToString();
+            string sname = userData.Tables[0].Rows[0]["sname"].ToString();
+            string job_role = userData.Tables[0].Rows[0]["job_role"].ToString();
+            int randomNumber = random.Next(1, 10 + 1);
+            string quote = obj.returnQuote(randomNumber);//gets Random quote
+
+            //assigns values to the text boxes
+            textBox2.Text = email;
+            titleBox.Text = title;
+            firstNameBox.Text = fname;
+            secondNameBox.Text = sname;
+            jobRoleBox.Text = job_role;
+            quoteBox.Text = quote;
+
+            int numOfEvents = obj.returnNumOfEvents(userID);//gets the number of events related to the user
+            DataSet eventsData = obj.returnEventData(userID);
+            switch (numOfEvents)
+            {
+                case 0:
+                    event1Button.Text = "No Events";
+                    event1Button.Enabled = false;
+                    event2Button.Text = "No Events";
+                    event2Button.Enabled = false;
+                    event3Button.Text = "No Events";
+                    event3Button.Enabled = false;
+                    break;
+                case 1:
+                    event1Button.Text = eventsData.Tables[0].Rows[0]["title"].ToString();
+                    event2Button.Text = "No Events";
+                    event2Button.Enabled = false;
+                    event3Button.Text = "No Events";
+                    event3Button.Enabled = false;
+                    break;
+                case 2:
+                    event1Button.Text = eventsData.Tables[0].Rows[0]["title"].ToString();
+                    event2Button.Text = eventsData.Tables[0].Rows[1]["title"].ToString();
+                    event3Button.Text = "No Events";
+                    event3Button.Enabled = false;
+                    break;
+                default:
+                    event1Button.Text = eventsData.Tables[0].Rows[0]["title"].ToString();
+                    event2Button.Text = eventsData.Tables[0].Rows[1]["title"].ToString();
+                    event1Button.Text = eventsData.Tables[0].Rows[2]["title"].ToString();
+                    break;
+
+            }
+            
+
         }
 
         
@@ -81,71 +134,7 @@ namespace StockDataApp.FrontEnd
 
         }
 
-        public void assignMessages(int userID)
-        {
-            MessagesBackend obj = new MessagesBackend();
-            String[][] messages = new String[5][];
-            int num = obj.getNumOfMessages(userID);
-            messages = obj.getMessages(userID);
-            for(int i = 0;i<num;i++)
-            {
-                MessageBox.Show(messages[i][2]);
-                switch (i)
-                {
-                    case 1:
-                        if (Int16.Parse(messages[i][0]) == userID)
-                        {
-                            button1.Text= "Sent : " +messages[i][2];
-                        }
-                        else
-                        {
-                            button1.Text = "Recieved : " + messages[i][2];
-                        }
-                        break;
-                    case 2:
-                        if (Int16.Parse(messages[i][0]) == userID)
-                        {
-                            button2.Text = "Sent : " + messages[i][2];
-                        }
-                        else
-                        {
-                            button2.Text = "Recieved : " + messages[i][2];
-                        }
-                        break;
-                    case 3:
-                        if (Int16.Parse(messages[i][0]) == userID)
-                        {
-                            button3.Text = "Sent : " + messages[i][2];
-                        }
-                        else
-                        {
-                            button3.Text = "Recieved : " + messages[i][2];
-                        }
-                        break;
-                    case 4:
-                        if (Int16.Parse(messages[i][0]) == userID)
-                        {
-                            button4.Text = "Sent : " + messages[i][2];
-                        }
-                        else
-                        {
-                            button4.Text = "Recieved : " + messages[i][2];
-                        }
-                        break;
-                    case 5:
-                        if (Int16.Parse(messages[i][0]) == userID)
-                        {
-                            button5.Text = "Sent : " + messages[i][2];
-                        }
-                        else
-                        {
-                            button5.Text = "Recieved : " + messages[i][2];
-                        }
-                        break;
-
-                }
-            }
-        }
+        
 
         private void messages_panel_Paint(object sender, PaintEventArgs e)
         {
@@ -153,6 +142,36 @@ namespace StockDataApp.FrontEnd
         }
 
         private void events_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void titleBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void firstNameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void secondNameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jobRoleBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quoteBox_TextChanged(object sender, EventArgs e)
         {
 
         }
