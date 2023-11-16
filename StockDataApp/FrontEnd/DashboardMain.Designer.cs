@@ -53,8 +53,10 @@
             this.event1Button = new System.Windows.Forms.Button();
             this.event2Button = new System.Windows.Forms.Button();
             this.event3Button = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,6 +76,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(440, 902);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // dashboard
             // 
@@ -393,6 +396,11 @@
             this.event3Button.TabIndex = 18;
             this.event3Button.UseVisualStyleBackColor = false;
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // DashboardMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -424,6 +432,7 @@
             this.Load += new System.EventHandler(this.DashboardMain_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,5 +463,6 @@
         private System.Windows.Forms.Button event1Button;
         private System.Windows.Forms.Button event2Button;
         private System.Windows.Forms.Button event3Button;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }

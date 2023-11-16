@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StockDataApp.BackEnd.Controller;
 
+
 namespace StockDataApp.FrontEnd
 {
     public partial class DashboardMain : Form
@@ -41,7 +42,10 @@ namespace StockDataApp.FrontEnd
 
         private void clients_Click(object sender, EventArgs e)
         {
-
+            ClientsPage obj = new ClientsPage();
+            obj.giveValues();
+            obj.Show();
+            this.Hide();
         }
 
         private void products_Click(object sender, EventArgs e)
@@ -52,8 +56,8 @@ namespace StockDataApp.FrontEnd
         private void exit_Click(object sender, EventArgs e)
         {
             LoginPage obj = new LoginPage();
-            this.Hide();
             obj.Show();
+            this.Hide();
         }
         public void uname(String uname)
         {
@@ -174,6 +178,16 @@ namespace StockDataApp.FrontEnd
         private void quoteBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

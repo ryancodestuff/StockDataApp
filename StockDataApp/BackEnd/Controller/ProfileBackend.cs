@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StockDataApp.FrontEnd;
 
 namespace StockDataApp.BackEnd.Controller
 {
@@ -65,5 +66,7 @@ namespace StockDataApp.BackEnd.Controller
             int numOfEvents = Int16.Parse(num);
             return numOfEvents;
         }
+
+        
     }
 }
