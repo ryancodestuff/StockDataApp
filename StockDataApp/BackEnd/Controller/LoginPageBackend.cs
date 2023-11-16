@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace StockDataApp.BackEnd.Controller
 {
     internal class LoginPageBackend
@@ -42,13 +43,12 @@ namespace StockDataApp.BackEnd.Controller
         public bool checkIfUsernameExists(String username)
         {
             Connection obj = new Connection();
-            String query = "SELECT COUNT(*) AS COUNT \r\n" +
-                "FROM Users\r\n" +
-                "WHERE email = '"+username+"';";
+            String query = "SELECT *" +
+                "\r\nFROM Users\r\n" +
+                "WHERE email = '" + username + "'";
             DataSet uName = obj.getDataSet(query);
-            string num = uName.Tables[0].Rows[0]["COUNT"].ToString();
-            int idNum = Int16.Parse(num);
-            if (idNum == 1)
+            string num = uName.Tables[0].Rows[0]["email"].ToString();
+            if (username == num)
             {
                 return true;
             }

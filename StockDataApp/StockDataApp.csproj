@@ -61,7 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackEnd\Controller\EventsBackend.cs" />
     <Compile Include="BackEnd\Controller\LoginPageBackend.cs" />
     <Compile Include="BackEnd\Controller\MessagesBackend.cs" />
     <Compile Include="BackEnd\Controller\ProfileBackend.cs" />
@@ -86,6 +85,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrontEnd\ClientsPage.resx">
+      <DependentUpon>ClientsPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrontEnd\DashboardMain.resx">
       <DependentUpon>DashboardMain.cs</DependentUpon>
     </EmbeddedResource>

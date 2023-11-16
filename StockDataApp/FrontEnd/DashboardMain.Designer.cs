@@ -140,7 +140,6 @@
             this.clients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.clients.BackColor = System.Drawing.Color.Transparent;
             this.clients.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.clients.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -160,7 +159,7 @@
             this.profile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.profile.BackColor = System.Drawing.Color.Transparent;
+            this.profile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.profile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.profile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.profile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

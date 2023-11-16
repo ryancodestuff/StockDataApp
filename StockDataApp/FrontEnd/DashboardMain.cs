@@ -63,7 +63,7 @@ namespace StockDataApp.FrontEnd
             int userID = obj.getUserId(uname);
 
             //userDetails being updated
-            DataSet userData = obj.returnUserData(userID);//gets userinfo dataset
+            DataSet userData = obj.returnUserData(101);//gets userinfo dataset
             string email = userData.Tables[0].Rows[0]["email"].ToString();
             string title = userData.Tables[0].Rows[0]["title"].ToString();
             string fname = userData.Tables[0].Rows[0]["fname"].ToString();

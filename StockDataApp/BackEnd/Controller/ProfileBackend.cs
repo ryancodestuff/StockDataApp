@@ -36,7 +36,7 @@ namespace StockDataApp.BackEnd.Controller
         {
             Connection obj = new Connection();
             String query = "SELECT title,event_info\r\n" +
-                "FROM Events\r\nWHERE users LIKE '%," + id + ",%'" +
+                "FROM Events\r\nWHERE users LIKE '%, " + id + ",%'" +
                 "\r\nORDER BY event_datetime";
             DataSet eventData = obj.getDataSet(query);
             return eventData;
@@ -59,7 +59,7 @@ namespace StockDataApp.BackEnd.Controller
             Connection obj = new Connection();
             String query = "SELECT COUNT(title) AS Count \r\n" +
                 "FROM Events\r\n" +
-                "WHERE users LIKE '%, " + id + ",%'";
+                "WHERE users LIKE '%, " + username + ",%'";
             DataSet userID = obj.getDataSet(query);
             string num = userID.Tables[0].Rows[0]["Count"].ToString();
             int numOfEvents = Int16.Parse(num);
