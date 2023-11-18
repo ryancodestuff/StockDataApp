@@ -64,7 +64,10 @@
     <Compile Include="BackEnd\Controller\ClientsPageBackend.cs" />
     <Compile Include="BackEnd\Controller\LoginPageBackend.cs" />
     <Compile Include="BackEnd\Controller\MessagesBackend.cs" />
+    <Compile Include="BackEnd\Controller\Product.cs" />
+    <Compile Include="BackEnd\Controller\ProductsPageBackend.cs" />
     <Compile Include="BackEnd\Controller\ProfileBackend.cs" />
+    <Compile Include="BackEnd\Controller\User.cs" />
     <Compile Include="BackEnd\Services\Connection.cs" />
     <Compile Include="FrontEnd\ClientsPage.cs">
       <SubType>Form</SubType>
@@ -84,6 +87,12 @@
     <Compile Include="FrontEnd\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrontEnd\ProductsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\ProductsPage.Designer.cs">
+      <DependentUpon>ProductsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrontEnd\ClientsPage.resx">
@@ -94,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrontEnd\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontEnd\ProductsPage.resx">
+      <DependentUpon>ProductsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

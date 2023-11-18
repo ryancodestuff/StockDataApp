@@ -84,7 +84,7 @@ namespace StockDataApp.FrontEnd
             DashboardMain obj = new DashboardMain();
             this.Hide();
             obj.Show();
-            obj.uname(email_enter.Text);
+            obj.uname(email_enter.Text);          
         }
     }
 }

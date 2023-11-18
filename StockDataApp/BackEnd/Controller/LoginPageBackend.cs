@@ -20,6 +20,7 @@ namespace StockDataApp.BackEnd.Controller
         
         public void validateUser(LoginPage instance,String username, String password)
         {
+            User user = new User();
             Connection obj = new Connection();
             bool uNameExists = checkIfUsernameExists(username);
             if (uNameExists == false)

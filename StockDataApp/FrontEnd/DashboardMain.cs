@@ -50,7 +50,10 @@ namespace StockDataApp.FrontEnd
 
         private void products_Click(object sender, EventArgs e)
         {
-
+            ProductsPage obj = new ProductsPage();
+            obj.giveValues();
+            obj.Show();
+            this.Hide();
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -61,13 +64,13 @@ namespace StockDataApp.FrontEnd
         }
         public void uname(String uname)
         {
+            User user = new User();
             Random random = new Random();
-            
             ProfileBackend obj = new ProfileBackend();
             int userID = obj.getUserId(uname);
 
             //userDetails being updated
-            DataSet userData = obj.returnUserData(101);//gets userinfo dataset
+            DataSet userData = obj.returnUserData(userID);//gets userinfo dataset
             string email = userData.Tables[0].Rows[0]["email"].ToString();
             string title = userData.Tables[0].Rows[0]["title"].ToString();
             string fname = userData.Tables[0].Rows[0]["fname"].ToString();
@@ -83,6 +86,11 @@ namespace StockDataApp.FrontEnd
             secondNameBox.Text = sname;
             jobRoleBox.Text = job_role;
             quoteBox.Text = quote;
+            user.title = title;
+            user.email = email;
+            user.fname= fname;
+            user.sname= sname;
+            user.job_role = job_role;
 
             int numOfEvents = obj.returnNumOfEvents(userID);//gets the number of events related to the user
             DataSet eventsData = obj.returnEventData(userID);

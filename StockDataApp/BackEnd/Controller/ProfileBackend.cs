@@ -58,13 +58,12 @@ namespace StockDataApp.BackEnd.Controller
         public int getUserId(string username)
         {
             Connection obj = new Connection();
-            String query = "SELECT COUNT(title) AS Count \r\n" +
-                "FROM Events\r\n" +
-                "WHERE users LIKE '%, " + username + ",%'";
+            String query = "SELECT user_id\r\nFROM Users\r\n" +
+                "WHERE email = '" + username + "'";
             DataSet userID = obj.getDataSet(query);
-            string num = userID.Tables[0].Rows[0]["Count"].ToString();
-            int numOfEvents = Int16.Parse(num);
-            return numOfEvents;
+            string num = userID.Tables[0].Rows[0]["user_id"].ToString();
+            int userNum = Int16.Parse(num);
+            return userNum;
         }
 
         

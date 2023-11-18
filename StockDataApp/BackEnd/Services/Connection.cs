@@ -51,10 +51,10 @@ namespace StockDataApp.BackEnd.Services
                 conToDB.Close();
                 return dr;
             }
-
-
-
-
+        }
+        public string setUsername(string username)
+        {
+            return username;
         }
     }
 
