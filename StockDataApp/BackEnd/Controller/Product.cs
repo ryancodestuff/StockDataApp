@@ -8,7 +8,8 @@ namespace StockDataApp.BackEnd.Controller
 {
     public class Product
     {
-        public int productId { get; set; }
+        private int ProductId;
+        public int productId { get { return ProductId; } set { ProductId = value; } }
         public string symbol { get; set; }
         public string name { get; set; }
         public float last_sale { get; set; }

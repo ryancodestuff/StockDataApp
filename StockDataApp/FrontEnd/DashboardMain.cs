@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StockDataApp.BackEnd.Controller;
+using StockDataApp.BackEnd.APIContoller;
 
 
 namespace StockDataApp.FrontEnd
@@ -37,7 +38,9 @@ namespace StockDataApp.FrontEnd
 
         private void dashboard_Click(object sender, EventArgs e)
         {
-
+            News obj = new News();
+            string news = obj.data();
+            MessageBox.Show(news);
         }
 
         private void clients_Click(object sender, EventArgs e)

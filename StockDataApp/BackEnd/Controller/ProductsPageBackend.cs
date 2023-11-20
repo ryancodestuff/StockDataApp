@@ -1,8 +1,10 @@
 ﻿using StockDataApp.BackEnd.Services;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,10 +23,10 @@ namespace StockDataApp.BackEnd.Controller
                 dataProducts = obj.getDataSet(query);
                 return dataProducts;
             }
-            switch(filter) 
+            switch (filter)
             {
                 case "Last Sale":
-                    if(sort == "Low to High")
+                    if (sort == "Low to High")
                     {
                         query = "SELECT TOP 100 symbol,name,last_sale,net_change,change_perc,market_cap," +
                             "country,volume,industry\r\nFROM Products\r\nORDER BY last_sale";
@@ -34,7 +36,7 @@ namespace StockDataApp.BackEnd.Controller
                         query = "SELECT TOP 100 symbol,name,last_sale,net_change,change_perc,market_cap," +
                             "country,volume,industry\r\nFROM Products\r\nORDER BY last_sale DESC";
                     }
-                       break;
+                    break;
                 case "Net Change":
                     if (sort == "Low to High")
                     {
@@ -77,8 +79,8 @@ namespace StockDataApp.BackEnd.Controller
                         query = "SELECT TOP 100 symbol,name,last_sale,net_change,change_perc,market_cap," +
                              "country,volume,industry\r\nFROM Products\r\nORDER BY volume";
                     }
-                        query = "SELECT TOP 100 symbol,name,last_sale,net_change,change_perc,market_cap," +
-                             "country,volume,industry\r\nFROM Products\r\nORDER BY volume DESC";
+                    query = "SELECT TOP 100 symbol,name,last_sale,net_change,change_perc,market_cap," +
+                         "country,volume,industry\r\nFROM Products\r\nORDER BY volume DESC";
                     break;
             }
             dataProducts = obj.getDataSet(query);
@@ -90,7 +92,7 @@ namespace StockDataApp.BackEnd.Controller
             int num;
             Connection obj = new Connection();
             String query = "SELECT COUNT(*) AS COUNT\r\nFROM Products\r\n" +
-                "WHERE LOWER(name) LIKE LOWER('"+product+"'+'%')";
+                "WHERE LOWER(name) LIKE LOWER('" + product + "'+'%')";
             DataSet noOf = obj.getDataSet(query);
             string number = noOf.Tables[0].Rows[0]["COUNT"].ToString();
             num = Int16.Parse(number);
@@ -106,7 +108,7 @@ namespace StockDataApp.BackEnd.Controller
             return productNames;
         }
 
-        public DataSet returnProductInfo(string product) 
+        public DataSet returnProductInfo(string product)
         {
             Connection obj = new Connection();
             String query = "SELECT *\r\nFROM Products\r\n" +
@@ -114,5 +116,57 @@ namespace StockDataApp.BackEnd.Controller
             DataSet productInfo = obj.getDataSet(query);
             return productInfo;
         }
+
+        public DataSet assignClientProducts(string filter, string productName)
+        {
+            Product product = new Product();
+            Connection obj = new Connection();
+            DataSet productInfo = returnProductInfo(productName);
+            string sector = productInfo.Tables[0].Rows[0]["sector"].ToString();
+            string change = productInfo.Tables[0].Rows[0]["net_change"].ToString();
+            string volume = productInfo.Tables[0].Rows[0]["volume"].ToString();
+            string lastSale = productInfo.Tables[0].Rows[0]["last_sale"].ToString();
+
+
+            if (filter == "General")
+            {
+                String query = "SELECT client_name,industry1,industry2,ideal_change,ideal_volume," +
+                "ideal_last_sale\r\nFROM Client\r\nWHERE sector1 = " + sector + " OR sector2 = " + sector;
+                DataSet clientProducts = obj.getDataSet(query);
+                return clientProducts;
+            }
+            else if (filter == "By Change")
+            {
+                String query = "SELECT client_name,industry1,industry2,ideal_change,ideal_volume," +
+                        "ideal_last_sale\r\nFROM Client\r\nWHERE sector1 = " + sector + " OR sector2 = " + sector + "" +
+                        "\r\nORDER BY ABS(ideal_change - " + change + ")";
+                DataSet clientProducts = obj.getDataSet(query);
+                return clientProducts;
+            }
+            else if (filter == "By Volume")
+            {
+                String query = "SELECT client_name,industry1,industry2,ideal_change,ideal_volume," +
+                        "ideal_last_sale\r\nFROM Client\r\nWHERE sector1 = " + sector + " OR sector2 = " + sector + "" +
+                        "\r\nORDER BY ABS(ideal_volume - " + volume + ")";
+                DataSet clientProducts = obj.getDataSet(query);
+                return clientProducts;
+            }
+            else if (filter == "By Last Sale")
+            {
+                String query = "SELECT client_name,industry1,industry2,ideal_change,ideal_volume," +
+                       "ideal_last_sale\r\nFROM Client\r\nWHERE sector1 = " + sector + " OR sector2 = " + sector + "" +
+                       "\r\nORDER BY ABS(ideal_last_sale - " + lastSale + ")";
+                DataSet clientProducts = obj.getDataSet(query);
+                return clientProducts;
+            }
+            else
+            {
+                String query = "SELECT client_name,industry1,industry2,ideal_change,ideal_volume," +
+                "ideal_last_sale\r\nFROM Client\r\nWHERE sector1 = " + sector + " OR sector2 = " + sector;
+                DataSet clientProducts = obj.getDataSet(query);
+                return clientProducts;
+            }
+
+        }
     }
-}
+    }
