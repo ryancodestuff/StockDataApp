@@ -38,9 +38,9 @@ namespace StockDataApp.FrontEnd
 
         private void dashboard_Click(object sender, EventArgs e)
         {
-            News obj = new News();
-            string news = obj.data();
-            MessageBox.Show(news);
+            NewsPage obj = new NewsPage();
+            obj.Show();
+            this.Hide();
         }
 
         private void clients_Click(object sender, EventArgs e)
@@ -199,6 +199,11 @@ namespace StockDataApp.FrontEnd
         private void button1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

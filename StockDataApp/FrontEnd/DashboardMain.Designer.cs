@@ -49,11 +49,11 @@
             this.jobRoleBox = new System.Windows.Forms.TextBox();
             this.quoteBox = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.eventsTextBox = new System.Windows.Forms.TextBox();
-            this.event1Button = new System.Windows.Forms.Button();
-            this.event2Button = new System.Windows.Forms.Button();
-            this.event3Button = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.event3Button = new System.Windows.Forms.Button();
+            this.event2Button = new System.Windows.Forms.Button();
+            this.event1Button = new System.Windows.Forms.Button();
+            this.eventsTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -201,6 +201,7 @@
             this.textBox1.Size = new System.Drawing.Size(87, 31);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "Email:";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -330,53 +331,10 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // eventsTextBox
+            // fileSystemWatcher1
             // 
-            this.eventsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(32)))));
-            this.eventsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.eventsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(206)))), ((int)(((byte)(142)))));
-            this.eventsTextBox.Location = new System.Drawing.Point(984, 14);
-            this.eventsTextBox.Name = "eventsTextBox";
-            this.eventsTextBox.Size = new System.Drawing.Size(204, 42);
-            this.eventsTextBox.TabIndex = 15;
-            this.eventsTextBox.Text = "EVENTS";
-            // 
-            // event1Button
-            // 
-            this.event1Button.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.event1Button.BackColor = System.Drawing.Color.Transparent;
-            this.event1Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.event1Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.event1Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.event1Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.event1Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(206)))), ((int)(((byte)(142)))));
-            this.event1Button.Location = new System.Drawing.Point(881, 76);
-            this.event1Button.Margin = new System.Windows.Forms.Padding(0);
-            this.event1Button.Name = "event1Button";
-            this.event1Button.Size = new System.Drawing.Size(307, 55);
-            this.event1Button.TabIndex = 16;
-            this.event1Button.UseVisualStyleBackColor = false;
-            // 
-            // event2Button
-            // 
-            this.event2Button.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.event2Button.BackColor = System.Drawing.Color.Transparent;
-            this.event2Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.event2Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.event2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.event2Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.event2Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(206)))), ((int)(((byte)(142)))));
-            this.event2Button.Location = new System.Drawing.Point(881, 160);
-            this.event2Button.Margin = new System.Windows.Forms.Padding(0);
-            this.event2Button.Name = "event2Button";
-            this.event2Button.Size = new System.Drawing.Size(307, 55);
-            this.event2Button.TabIndex = 17;
-            this.event2Button.UseVisualStyleBackColor = false;
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
             // 
             // event3Button
             // 
@@ -396,10 +354,53 @@
             this.event3Button.TabIndex = 18;
             this.event3Button.UseVisualStyleBackColor = false;
             // 
-            // fileSystemWatcher1
+            // event2Button
             // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
+            this.event2Button.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.event2Button.BackColor = System.Drawing.Color.Transparent;
+            this.event2Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.event2Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.event2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.event2Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.event2Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(206)))), ((int)(((byte)(142)))));
+            this.event2Button.Location = new System.Drawing.Point(881, 160);
+            this.event2Button.Margin = new System.Windows.Forms.Padding(0);
+            this.event2Button.Name = "event2Button";
+            this.event2Button.Size = new System.Drawing.Size(307, 55);
+            this.event2Button.TabIndex = 17;
+            this.event2Button.UseVisualStyleBackColor = false;
+            // 
+            // event1Button
+            // 
+            this.event1Button.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.event1Button.BackColor = System.Drawing.Color.Transparent;
+            this.event1Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.event1Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.event1Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.event1Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.event1Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(206)))), ((int)(((byte)(142)))));
+            this.event1Button.Location = new System.Drawing.Point(881, 76);
+            this.event1Button.Margin = new System.Windows.Forms.Padding(0);
+            this.event1Button.Name = "event1Button";
+            this.event1Button.Size = new System.Drawing.Size(307, 55);
+            this.event1Button.TabIndex = 16;
+            this.event1Button.UseVisualStyleBackColor = false;
+            // 
+            // eventsTextBox
+            // 
+            this.eventsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(32)))));
+            this.eventsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(206)))), ((int)(((byte)(142)))));
+            this.eventsTextBox.Location = new System.Drawing.Point(984, 14);
+            this.eventsTextBox.Name = "eventsTextBox";
+            this.eventsTextBox.Size = new System.Drawing.Size(204, 42);
+            this.eventsTextBox.TabIndex = 15;
+            this.eventsTextBox.Text = "EVENTS";
             // 
             // DashboardMain
             // 
@@ -459,10 +460,10 @@
         private System.Windows.Forms.TextBox jobRoleBox;
         private System.Windows.Forms.TextBox quoteBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox eventsTextBox;
-        private System.Windows.Forms.Button event1Button;
-        private System.Windows.Forms.Button event2Button;
-        private System.Windows.Forms.Button event3Button;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button event3Button;
+        private System.Windows.Forms.Button event2Button;
+        private System.Windows.Forms.Button event1Button;
+        private System.Windows.Forms.TextBox eventsTextBox;
     }
 }
